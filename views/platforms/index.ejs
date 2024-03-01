@@ -1,0 +1,56 @@
+<div class="container py-2">
+  
+  <h1>Platforms</h1>
+   <div class="row">
+     <% platforms.forEach(platform => { %>
+     <div class="col-md-4 col-sm-12 mb-2">
+       <div class="card my-3 card-category">
+        
+         <div class="card-category-img">
+        
+          <img src="<%= platform.image_background %>" class="img-category card-img-top">
+         </div>
+         <div class="card-body">
+             <h4 class="px-2"><%= platform.name %> </h4>
+           </a>
+            <div class="py-2 d-flex border-bottom border-top align-items-center justify-content-between">
+              <span><strong>Popular Items</strong></span><span><%= platform.games_count %></span>
+            </div>
+           <ul class="nav flex-column pt-2">
+
+             <% platform.games.forEach(game => { %>
+               <li class="nav-item"><a href="/games/<%= game.slug %>" class="nav-link">
+                 <%= game.name %><span class="mx-2"> <i class="fa-solid fa-chevron-right"></i></span>
+               </a></li>
+             
+             <% }); %>
+           </ul>
+
+         </div>
+       </div>
+               
+     </div>
+     <% }); %>
+   </div>
+
+
+       <nav aria-label="pagination-platforms" class="pt-4">
+          <ul class="pagination">
+
+            <li class="page-item <%= currentPage === 1 ? 'disabled' : '' %>">
+              <a class="page-link" href="?page=<%= currentPage - 1 %>">Previous</a>
+            </li>
+
+            <% for (let i = 1; i <= totalPages; i++) { %>
+              <li class="page-item <%= currentPage === i ? 'active' : '' %>">
+                <a class="page-link" href="?page=<%= i %>"><%= i %></a>
+              </li>
+            <% } %>
+
+            <li class="page-item <%= currentPage === totalPages ? 'disabled' : '' %>">
+              <a class="page-link" href="?page=<%= currentPage + 1 %>">Next</a>
+            </li>
+          </ul>
+        </nav> 
+       
+ </div>
