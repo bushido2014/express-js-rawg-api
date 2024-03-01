@@ -7,7 +7,6 @@ const API_KEY = config.API_KEY;
  * GET /
  * Genres
  */
-
 exports.genres = async (req, res) => {
   const locals = {
     title: "Genres — video game discovery site • RAWG",
