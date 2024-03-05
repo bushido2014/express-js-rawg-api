@@ -6,8 +6,8 @@ const LIMIT = 20;
 
 exports.gamespage = async (req, res) => {
   const locals = {
-    title: "Game",
-    description: "Home Page Description",
+    title: "List of Video Games on RAWG",
+    description: "List of Video Games on RAWG ♛ Keep all games in one profile ✔ See what friends are playing, and find your next great game",
   };
   const page = parseInt(req.query.page || 1);
   const offset = (page - 1) * LIMIT;
