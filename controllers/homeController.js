@@ -49,8 +49,10 @@ exports.homepage = async (req, res) => {
       newGames: newGamesData.results,
       ...locals,
     });
+    
     //console.log(upcomingData.results);
     //console.log(newGamesData.results);
+    
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
