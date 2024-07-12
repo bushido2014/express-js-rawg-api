@@ -11,7 +11,7 @@ app.use(express.static("public"));
 app.use(expressLayout);
 app.set("layout", "layouts/main");
 app.set("view engine", "ejs");
-
+app.set("views", __dirname + "/views");
 // Routes
 const homeRoutes = require("./routes/home");
 
