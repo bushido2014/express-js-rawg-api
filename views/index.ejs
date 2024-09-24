@@ -5,7 +5,7 @@
     <div id="newGamesCarousel" class="carousel slide">
 
             <div class="carousel-inner">
-
+              <% if (newGames && newGames.length > 0) { %>
                 <% newGames.forEach((newGame, index) => { %>
                   <% if (index % 4 === 0) { %>
                     <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
@@ -22,25 +22,31 @@
 
                         <div class="d-flex justify-content-between align-items-center card-info mb-3">
                           <div class="icons">
-                            <% newGame.parent_platforms.forEach(platform => { %>
-                              <% if (platform.platform.name === 'PC') { %>
-                                <i class="fa-brands fa-windows"></i>
-                              <% } else if (platform.platform.name === 'Linux') { %>
-                                <i class="fa-brands fa-linux"></i>
-                              <% } else if (platform.platform.name === 'PlayStation') { %>
-                                <i class="fa-brands fa-playstation"></i>
-                              <% } else if (platform.platform.name === 'Xbox') { %>
-                                <i class="fa-brands fa-xbox"></i>
-                              <% } else if (platform.platform.name === 'Apple Macintosh') { %>
-                                <i class="fa-brands fa-apple"></i>
-                              <% } else if (platform.platform.name === 'Nintendo') { %>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1rem" class="nintendo-icon" viewBox="0 0 32 32">
-                                  <path fill="currentColor" d="M0 .803h9.469L22.598 22V.803h9.401v30.395h-9.385L9.411 10.001v21.197H-.001z" />
-                                </svg>
-                              <% } else if (platform.platform.name === 'Android') { %>
-                                <i class="fa-brands fa-android"></i>
-                              <% } %>
-                            <% }) %>
+
+                            <% if (newGame.parent_platforms) { %>
+                              <% newGame.parent_platforms.forEach(platform => { %>
+                                <% if (platform.platform.name === 'PC') { %>
+                                  <i class="fa-brands fa-windows"></i>
+                                <% } else if (platform.platform.name === 'Linux') { %>
+                                  <i class="fa-brands fa-linux"></i>
+                                <% } else if (platform.platform.name === 'PlayStation') { %>
+                                  <i class="fa-brands fa-playstation"></i>
+                                <% } else if (platform.platform.name === 'Xbox') { %>
+                                  <i class="fa-brands fa-xbox"></i>
+                                <% } else if (platform.platform.name === 'Apple Macintosh') { %>
+                                  <i class="fa-brands fa-apple"></i>
+                                <% } else if (platform.platform.name === 'Nintendo') { %>
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="1rem" class="nintendo-icon" viewBox="0 0 32 32">
+                                    <path fill="currentColor" d="M0 .803h9.469L22.598 22V.803h9.401v30.395h-9.385L9.411 10.001v21.197H-.001z" />
+                                  </svg>
+                                <% } else if (platform.platform.name === 'Android') { %>
+                                  <i class="fa-brands fa-android"></i>
+                                <% } %>
+                              <% }); %>
+                            <% } %>
+                            
+                        
+
                           </div>
                               <div>
                                 <span>
@@ -66,6 +72,10 @@
                   </div>
                   <% } %>
                 <% }); %>
+
+                <% } else { %>
+                  <p>No games available at the moment.</p>
+                <% } %>
 
             </div>
 
@@ -105,25 +115,31 @@
 
             <div class="d-flex justify-content-between align-items-center card-info mb-3">
               <div class="icons">
-                <% popularGame.parent_platforms.forEach(platform => { %>
-                  <% if (platform.platform.name === 'PC') { %>
-                    <i class="fa-brands fa-windows"></i>
-                  <% } else if (platform.platform.name === 'Linux') { %>
-                    <i class="fa-brands fa-linux"></i>
-                  <% } else if (platform.platform.name === 'PlayStation') { %>
-                    <i class="fa-brands fa-playstation"></i>
-                  <% } else if (platform.platform.name === 'Xbox') { %>
-                    <i class="fa-brands fa-xbox"></i>
-                  <% } else if (platform.platform.name === 'Apple Macintosh') { %>
-                    <i class="fa-brands fa-apple"></i>
-                  <% } else if (platform.platform.name === 'Nintendo') { %>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1rem" class="nintendo-icon" viewBox="0 0 32 32">
-                      <path fill="currentColor" d="M0 .803h9.469L22.598 22V.803h9.401v30.395h-9.385L9.411 10.001v21.197H-.001z" />
-                    </svg>
-                  <% } else if (platform.platform.name === 'Android') { %>
-                    <i class="fa-brands fa-android"></i>
-                  <% } %>
-                <% }) %>
+
+                <% if (popularGame.parent_platforms) { %>
+                  <% popularGame.parent_platforms.forEach(platform => { %>
+                    <% if (platform.platform.name === 'PC') { %>
+                      <i class="fa-brands fa-windows"></i>
+                    <% } else if (platform.platform.name === 'Linux') { %>
+                      <i class="fa-brands fa-linux"></i>
+                    <% } else if (platform.platform.name === 'PlayStation') { %>
+                      <i class="fa-brands fa-playstation"></i>
+                    <% } else if (platform.platform.name === 'Xbox') { %>
+                      <i class="fa-brands fa-xbox"></i>
+                    <% } else if (platform.platform.name === 'Apple Macintosh') { %>
+                      <i class="fa-brands fa-apple"></i>
+                    <% } else if (platform.platform.name === 'Nintendo') { %>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="1rem" class="nintendo-icon" viewBox="0 0 32 32">
+                        <path fill="currentColor" d="M0 .803h9.469L22.598 22V.803h9.401v30.395h-9.385L9.411 10.001v21.197H-.001z" />
+                      </svg>
+                    <% } else if (platform.platform.name === 'Android') { %>
+                      <i class="fa-brands fa-android"></i>
+                    <% } %>
+                  <% }); %>
+                <% } %>
+                
+             
+
               </div>
 
                   <div>
