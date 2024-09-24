@@ -23,5 +23,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Serverul rulează la adresa http://localhost:${port}/`);
+  console.log(`The server is running at the address http://localhost:${port}/`);
 });
