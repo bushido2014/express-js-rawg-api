@@ -1,7 +1,7 @@
 const config = {
   
   URI: "https://api.rawg.io/api",
-  API_KEY: "72aadea2ae6744e78e6ae10d615871e4",
+  API_KEY: "7359a78012014bc08d93678ccbc450c3",
   
 };
 module.exports = config;
